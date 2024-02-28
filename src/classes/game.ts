@@ -1,14 +1,18 @@
 import { decks } from 'cards'
+import Table from './table'
 
 class Game {
-    constructor(name) {
-        this.name = name
+    gameName: string;
+    deck: decks.StandardDeck;
+
+    constructor(gameName: string) {
+        this.gameName = gameName
         this.deck = new decks.StandardDeck()
         this.deck.shuffleAll()
         
     }
 
-    deal(table) {
+    deal(table: Table) {
         for (let player of table.players) {
             player.playerHand = this.deck.draw(1)
         }
@@ -19,7 +23,7 @@ class Game {
         table.dealer.playerHand.push(...this.deck.draw(1))
     }
 
-    resolve(table) {
+    resolve(table: Table) {
         let dealerHandValue = table.dealer.getHandValue()[0];
         for (let player of table.players) {
             let playerHandValue = player.getHandValue()[0];

@@ -1,6 +1,12 @@
+import { Card } from "cards";
+
 class Player {
-    constructor (name, chips) {
-        this.name = name
+    playerName: string;
+    chips: number;
+    playerHand: Array<Card> = [];
+
+    constructor (playerName: string, chips: number) {
+        this.playerName = playerName
         this.chips = chips
         this.playerHand = []
 
@@ -35,7 +41,7 @@ class Player {
             
         })
     
-        console.log(this.name + " Hand Value")
+        console.log(this.playerName + " Hand Value")
         if (softValue == hardValue) {
             console.log(hardValue)
             return [hardValue]
@@ -48,7 +54,7 @@ class Player {
     
 
     hit() {
-        this.playerHand.push(...this.deck.draw(1))
+        // this.playerHand.push(...this.deck.draw(1))
     }
 
     stand() {
