@@ -1,5 +1,5 @@
-import Dealer from './dealer.js'
-import Player from './player.js'
+import Dealer from './dealer'
+import Player from './player'
 
 class Table {
     players: Array<Player>;

@@ -1,6 +1,6 @@
-import Game from './classes/game.js'
-import Table from './classes/table.js'
-import Player from './classes/player.js'
+import Game from './classes/game'
+import Table from './classes/table'
+import Player from './classes/player'
 
 const game = new Game('Blackjack')
 const table = new Table()

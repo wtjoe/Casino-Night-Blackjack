@@ -1,5 +1,5 @@
-import Player from './player.js'
-import Table from './table.js'
+import Player from './player'
+import Table from './table'
 
 
 class Dealer extends Player {
