@@ -53,29 +53,29 @@ class Player {
     }
     
 
-    hit() {
-        // this.playerHand.push(...this.deck.draw(1))
-    }
+    // hit() {
+    //     this.playerHand.push(...this.deck.draw(1))
+    // }
 
-    stand() {
-        console.log("stand")
-    }
+    // stand() {
+    //     console.log("stand")
+    // }
 
-    double() {
-        console.log("double")
-    }
+    // double() {
+    //     console.log("double")
+    // }
 
-    split() {
-        console.log("split")
-    }
+    // split() {
+    //     console.log("split")
+    // }
 
-    surrender() {
-        console.log("surrender")
-    }
+    // surrender() {
+    //     console.log("surrender")
+    // }
 
-    insurance() {
-        console.log("insurance")
-    }
+    // insurance() {
+    //     console.log("insurance")
+    // }
 
     
 }

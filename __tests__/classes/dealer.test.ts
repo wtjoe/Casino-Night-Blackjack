@@ -1,5 +1,4 @@
 import Dealer from '../../src/classes/dealer';
-import {describe, expect, test} from '@jest/globals';
 
 describe('Dealer', () => {
   it('should create a dealer with the correct initial values', () => {
