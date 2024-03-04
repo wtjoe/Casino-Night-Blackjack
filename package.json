@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build:dev": "tsc --watch --preserveWatchOutput",
-    "start:dev": "nodemon dist/index.js"
+    "start:dev": "nodemon dist/index.js & webpack -w"
   },
   "author": "",
   "license": "ISC",
