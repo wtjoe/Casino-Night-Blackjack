@@ -1,6 +1,6 @@
 branch-defaults:
   main:
-    environment: dev-env
+    environment: dev-test
     group_suffix: null
 global:
   application_name: casino-night-blackjack
