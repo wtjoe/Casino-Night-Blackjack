@@ -39,6 +39,19 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
+
+  socket.on('join', (username, callback) => {
+    try {
+      const player = new Player(username, 1000);
+      table.addPlayer(player);
+      console.log('User joined', player.playerName);
+      callback();
+    } catch (error) {
+      console.error('Error joining user:', error);
+      callback(error);
+    }
+  });
+
 })
 
 httpServer.listen(PORT, () => {

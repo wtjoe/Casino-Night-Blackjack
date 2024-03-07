@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
-
+import JoinForm from "./joinForm";
 const socket = io();
 
+
+
 const App: React.FC = () => {
-  React.useEffect(() => {
+
+  useEffect(() => {
     console.log('Connecting to WebSocket');
     socket.connect();
 
@@ -14,7 +17,12 @@ const App: React.FC = () => {
     };
   }, []);
 
-  return <h1>TypeScript is awesome</h1>;
+
+  return (
+    <div>
+      <JoinForm />
+    </div>
+  );
 };
 
 export default App;
