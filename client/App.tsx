@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 import JoinForm from "./joinForm";
+
 const socket = io();
-
-
 
 const App: React.FC = () => {
 
@@ -19,9 +18,7 @@ const App: React.FC = () => {
 
 
   return (
-    <div>
       <JoinForm />
-    </div>
   );
 };
 

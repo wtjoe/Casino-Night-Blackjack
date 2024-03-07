@@ -8,23 +8,32 @@ const join = (username: string) => {
         console.error('Error joining:', error);
       } else {
         console.log('Joined successfully');
+        
       }
     });
   };
 
 const JoinForm: React.FC = () => {
   const [username, setUsername] = useState('');
+  const [hasJoined, setHasJoined] = useState(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     join(username);
+    setHasJoined(true);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <button type="submit">Join</button>
-    </form>
+    <div>
+        {hasJoined ? (
+        <p>You have joined the game!</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <button type="submit">Join</button>
+        </form>)}
+    </div>
+
   );
 };
 
