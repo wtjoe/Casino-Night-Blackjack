@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
-import JoinForm from "./joinForm";
+import PlayerStatus from "./playerStatus";
 
 const socket = io();
 
@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
 
   return (
-      <JoinForm />
+      <PlayerStatus />
   );
 };
 
