@@ -172,7 +172,40 @@ eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\n
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar socket_io_client_1 = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/cjs/index.js\");\nvar socket = (0, socket_io_client_1.io)();\nvar App = function () {\n    react_1.default.useEffect(function () {\n        console.log('Connecting to WebSocket');\n        socket.connect();\n        return function () {\n            console.log('Disconnecting from WebSocket');\n            socket.disconnect();\n        };\n    }, []);\n    return react_1.default.createElement(\"h1\", null, \"TypeScript is awesome\");\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://casino-night-blackjack/./client/App.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar Socket_1 = __importDefault(__webpack_require__(/*! ./Socket */ \"./client/Socket.tsx\"));\nvar GameHeader_1 = __importDefault(__webpack_require__(/*! ./GameHeader */ \"./client/GameHeader.tsx\"));\nvar Dealer_1 = __importDefault(__webpack_require__(/*! ./Dealer */ \"./client/Dealer.tsx\"));\nvar App = function () {\n    return react_1.default.createElement(react_1.default.Fragment, null,\n        react_1.default.createElement(Socket_1.default, null),\n        react_1.default.createElement(GameHeader_1.default, null),\n        react_1.default.createElement(Dealer_1.default, null));\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://casino-night-blackjack/./client/App.tsx?");
+
+/***/ }),
+
+/***/ "./client/Dealer.tsx":
+/*!***************************!*\
+  !*** ./client/Dealer.tsx ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar Dealer = function () {\n    return react_1.default.createElement(react_1.default.Fragment, null,\n        react_1.default.createElement(\"h1\", null, \"Dealer\"),\n        react_1.default.createElement(\"div\", null, \"Dealer's instructions go here\"),\n        react_1.default.createElement(\"div\", null, \"Dealer's cards go here\"),\n        react_1.default.createElement(\"div\", null, \"Dealer's hand value goes here\"));\n};\nexports[\"default\"] = Dealer;\n\n\n//# sourceURL=webpack://casino-night-blackjack/./client/Dealer.tsx?");
+
+/***/ }),
+
+/***/ "./client/GameHeader.tsx":
+/*!*******************************!*\
+  !*** ./client/GameHeader.tsx ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar GameHeader = function () {\n    return react_1.default.createElement(react_1.default.Fragment, null,\n        react_1.default.createElement(\"h1\", null, \"BlackJack\"),\n        react_1.default.createElement(\"p\", null, \"Here's a cool blackjack game you can join and play.  Maybe we'll add some rules here if that helps you.  \"));\n};\nexports[\"default\"] = GameHeader;\n\n\n//# sourceURL=webpack://casino-night-blackjack/./client/GameHeader.tsx?");
+
+/***/ }),
+
+/***/ "./client/Socket.tsx":
+/*!***************************!*\
+  !*** ./client/Socket.tsx ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar socket_io_client_1 = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/cjs/index.js\");\nvar socket = (0, socket_io_client_1.io)();\nvar Socket = function () {\n    react_1.default.useEffect(function () {\n        console.log('Connecting to WebSocket');\n        socket.connect();\n        return function () {\n            console.log('Disconnecting from WebSocket');\n            socket.disconnect();\n        };\n    });\n    return null;\n};\nexports[\"default\"] = Socket;\n\n\n//# sourceURL=webpack://casino-night-blackjack/./client/Socket.tsx?");
 
 /***/ }),
 

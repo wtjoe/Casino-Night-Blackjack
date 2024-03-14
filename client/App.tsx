@@ -1,20 +1,18 @@
 import React, { useEffect } from "react";
-import { io } from "socket.io-client";
+import Socket from "./Socket";
+import GameHeader from "./GameHeader";
+import Dealer from "./Dealer";
 
-const socket = io();
+
+
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    console.log('Connecting to WebSocket');
-    socket.connect();
+  return <>
+    <Socket />
+    <GameHeader />
+    <Dealer />
 
-    return () => {
-      console.log('Disconnecting from WebSocket');
-      socket.disconnect();
-    };
-  }, []);
-
-  return <h1>TypeScript is awesome</h1>;
+  </>
 };
 
 export default App;
