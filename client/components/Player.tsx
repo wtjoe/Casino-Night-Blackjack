@@ -1,29 +1,30 @@
 import React from "react";
+import Hand from "./Hand";
 
-const Player: React.FC = () => {
+interface PlayerProps {
+    player: {
+      name: string;
+      chips: number;
+      hands: {
+        bet: number;
+        cards: string[];
+        value: number;
+        result: string;
+      }[];
+    };
+  }
+
+const Player: React.FC<PlayerProps> = ({ player }) => {
   return <>
-    <h1>Player Name</h1>
-    <div>
-        Chips go here
-    </div>
+    <h1>{player.name}</h1>
+    <div>Chips:  {player.chips}</div>
     <button>Bet 10</button>
     <button>Deal</button>
     <button>Hit</button>
     <button>Stay</button>
     <button>Double Down</button>
     <button>Split</button>
-    <div>
-        Player's hand bet goes here
-    </div>
-    <div>
-        Player's hand cards go here
-    </div>
-    <div>
-        Player's hand value goes here
-    </div>
-    <div>
-        Player's hand result goes here
-    </div>
+    <Hand hand={player.hands[0]} />
 
 
   </>;

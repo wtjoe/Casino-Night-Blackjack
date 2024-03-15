@@ -1,16 +1,27 @@
 import React from "react";
 
-const Dealer: React.FC = () => {
+interface DealerProps {
+  dealer: {
+      dealerHand: string[];
+      value: number;
+      result: string;
+    };
+  };
+
+const Dealer: React.FC<DealerProps> = ({ dealer }) => {
   return <>
     <h1>Dealer</h1>
     <div>
         Dealer's instructions go here
     </div>
     <div>
-        Dealer's cards go here
+        Dealer's Hand: {dealer.dealerHand}
     </div>
     <div>
-        Dealer's hand value goes here
+        Dealer Hand Value: {dealer.value}
+    </div>
+    <div>
+        Dealer Hand Result: {dealer.result}
     </div>
   </>;
 };
