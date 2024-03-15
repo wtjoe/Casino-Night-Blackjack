@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
-import Socket from "./components/Socket";
 import GameHeader from "./components/GameHeader";
 import Dealer from "./components/Dealer";
 import JoinForm from "./components/JoinForm";
