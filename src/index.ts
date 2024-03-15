@@ -9,11 +9,11 @@ import path from "path"
 const game = new Game('Blackjack')
 const table = new Table()
 
-// const player1 = new Player('Player1', 1000)
-// const player2 = new Player('Player2', 1000)
-// table.addPlayer(player1)
-// table.addPlayer(player2)
-// game.deal(table)
+const player1 = new Player('Player1', 1000)
+const player2 = new Player('Player2', 1000)
+table.addPlayer(player1)
+table.addPlayer(player2)
+table.deal(table)
 
 // game.resolve(table)
 
@@ -35,6 +35,8 @@ const PORT = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
   console.log(('New Websocket connection'))
+  socket.emit('gameUpdate', table.getGameState(table))
+  console.log(('gameUpdate sent to all clients'))
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');

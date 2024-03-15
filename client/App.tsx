@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { io } from "socket.io-client";
 import Socket from "./components/Socket";
 import GameHeader from "./components/GameHeader";
 import Dealer from "./components/Dealer";
 import JoinForm from "./components/JoinForm";
 import Player from "./components/Player";
 import Opponents from "./components/Opponents";
+
+
 
 
 const App: React.FC = () => {
@@ -36,9 +39,42 @@ const App: React.FC = () => {
     ]
   });
 
+  const gameUpdate = (newGameState: any) => {
+    let game = JSON.parse(newGameState);
+    let dealer = game.dealer;
+    let player = game.players[0];
+    let opponents = game.players.slice(1);
+    setGame({ dealer, player, opponents });
+  };
+
+
+
+  React.useEffect(() => {
+
+    const socket = io();
+    console.log('Connecting to WebSocket');
+    socket.connect();
+
+    socket.on('gameUpdate', (newGameState) => {
+      console.log('gameUpdate received');
+      gameUpdate(newGameState);
+    });
+
+    return () => {
+      console.log('Disconnecting from WebSocket');
+      socket.disconnect();
+    };
+  }, []);
+
+
+  
+
+
+
+  
+
   return (
     <>
-      <Socket />
       <GameHeader/>
       <Dealer dealer={game.dealer} />
       <JoinForm />
