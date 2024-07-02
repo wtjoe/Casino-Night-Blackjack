@@ -10,10 +10,10 @@ const game = new Game('Blackjack')
 const table = new Table()
 
 const player1 = new Player('Player1', 1000)
-const player2 = new Player('Player2', 1000)
-table.addPlayer(player1)
-table.addPlayer(player2)
-table.deal(table)
+
+// table.addPlayer(player1)
+console.log(table.players)
+
 
 // game.resolve(table)
 
@@ -35,8 +35,16 @@ const PORT = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
   console.log(('New Websocket connection'))
-  socket.emit('gameUpdate', table.getGameState(table))
+  socket.emit('gameUpdate', table.getTableState(table))
   console.log(('gameUpdate sent to all clients'))
+  socket.on('join', (player, callback) => {
+    console.log(('join event received'))
+    console.log(player)
+    const newPlayer = new Player(player, 1000)
+    table.addPlayer(newPlayer)
+    callback(newPlayer.id)
+    socket.emit('gameUpdate', table.getTableState(table))
+  })
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');

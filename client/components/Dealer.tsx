@@ -2,9 +2,9 @@ import React from "react";
 
 interface DealerProps {
   dealer: {
-      dealerHand: string[];
-      value: number;
-      result: string;
+      // dealerHand: string[];
+      // value: number;
+      // result: string;
     };
   };
 
@@ -14,7 +14,7 @@ const Dealer: React.FC<DealerProps> = ({ dealer }) => {
     <div>
         Dealer's instructions go here
     </div>
-    <div>
+    {/* <div>
         Dealer's Hand: {dealer.dealerHand}
     </div>
     <div>
@@ -22,7 +22,7 @@ const Dealer: React.FC<DealerProps> = ({ dealer }) => {
     </div>
     <div>
         Dealer Hand Result: {dealer.result}
-    </div>
+    </div> */}
   </>;
 };
 

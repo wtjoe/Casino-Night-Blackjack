@@ -49,31 +49,23 @@ class Table {
         } 
     }
 
-    getGameState(table: Table) {
+    getTableState(table: Table) {
         return JSON.stringify({
-            dealer: {
-                dealerHand: table.dealer.playerHands[0].cards.map(card => card.toString()),
-                value: table.dealer.playerHands[0].getHandValue()[0],
-                result: "placeholder BlackJack!"
-            },
-            players: table.players.map((player) => {
-                return {
-                    name: player.playerName,
-                    chips: player.chips,
-                    hands: player.playerHands.map((playerHand) => {
-                        return {
-                            bet: 10,
-                            cards: player.playerHands[0].cards.map(card => card.toString()),
-                            value: player.playerHands[0].getHandValue(),
-                            result: "placeholder LOSE"
-                        }
-                    })
-                }
-            })
-            
-        })
-
-    }
+          dealer: {
+            dealerHand: table.dealer.getHands()[0]?.cards,
+            value: table.dealer.getHands()[0]?.value,
+            result: "placeholder BlackJack!"
+          },
+          players: table.players.map((player) => {
+            return {
+              name: player.playerName,
+              id: player.id,
+              chips: player.chips,
+              hands: player.getHands()
+            }
+          })
+        });
+      }
 }
 
 export default Table
