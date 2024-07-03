@@ -1,8 +1,5 @@
-export interface Card {
-    suit: string;
-    value: string;
-  }
-  
+import { Card } from "cards";
+ 
 export interface Hand {
     bet: number;
     cards: Card[];

@@ -1,12 +1,20 @@
 import React from "react";
+import { Card } from "cards";
 
 interface HandProps {
     hand: {
       bet: number;
-      cards: string[];
+      cards: Card[];
       value: number;
       result: string;
     };
+  }
+
+  type Hand = {
+    bet: number;
+    cards: Card[];
+    value: number;
+    result: string;
   }
   
   const Hand: React.FC<HandProps> = ({ hand }) => {
@@ -14,7 +22,7 @@ interface HandProps {
       <>
         <p>Hand</p>
         <div>Hand bet amount: {hand.bet}</div>
-        <div>Hand cards: {hand.cards}</div>
+        {/* <div>Hand cards: {hand.cards}</div> */}
         <div>Hand value: {hand.value}</div>
         <div>Hand result: {hand.result}</div>
       </>

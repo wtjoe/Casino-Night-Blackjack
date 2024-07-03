@@ -39,11 +39,12 @@ io.on('connection', (socket) => {
   console.log(('gameUpdate sent to all clients'))
   socket.on('join', (player, callback) => {
     console.log(('join event received'))
-    console.log(player)
+    console.log(("here's the new player ") + player);
     const newPlayer = new Player(player, 1000)
     table.addPlayer(newPlayer)
     callback(newPlayer.id)
-    socket.emit('gameUpdate', table.getTableState(table))
+    io.emit('gameUpdate', table.getTableState(table))
+    console.log(('a new player joined the game and gameUpdate sent to all clients'))
   })
 
   socket.on('disconnect', () => {

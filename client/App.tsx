@@ -5,7 +5,9 @@ import Dealer from "./components/Dealer";
 import JoinForm from "./components/JoinForm";
 import Player from "./components/Player";
 import Opponents from "./components/Opponents";
-import { TableState, PlayerState, Hand, Card } from './components/types';
+import { TableState } from './components/types';
+import { Card } from "cards";
+
 
 const App: React.FC = () => {
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -15,15 +17,21 @@ const App: React.FC = () => {
   const tableUpdate = (newTableState: string) => {
     let table = JSON.parse(newTableState);
     let dealer = table.dealer;
-    let player = table.players[0];
-    let opponents = table.players.slice(1);
+    // Retrieve player ID from local storage
+    const currentPlayerID = localStorage.getItem('playerID');
+
+    // Find the player with the matching ID, now explicitly typed
+    let player = table.players.find((p: Player) => p.id === currentPlayerID);
+    
+
+    // Define opponents as any other players, with explicit typing
+    let opponents = table.players.filter((p: Player) => p.id !== currentPlayerID);
     setTable({ dealer, player, opponents });
   };
 
 
 
   React.useEffect(() => {
-
     const socket = io();
     setSocket(socket);
 
@@ -39,7 +47,9 @@ const App: React.FC = () => {
       console.log('Disconnecting from WebSocket');
       socket.disconnect();
     };
+    
   }, []);
+
 
 
   
@@ -52,9 +62,9 @@ const App: React.FC = () => {
     <>
       <GameHeader/>
       {/* <Dealer dealer={table.dealer} /> */}
-      <JoinForm setPlayerID={setPlayerID} socket={socket}/>
+      {!table?.player && <JoinForm setPlayerID={setPlayerID} socket={socket}/>}
       {table?.player && <Player player={table.player} />}
-      {/* {table.opponents && table.opponents.length > 0 && <Opponents opponents={table.opponents} />} */}
+      {table?.opponents && table.opponents.length > 0 && <Opponents opponents={table.opponents} />}
 
     </>
 )};

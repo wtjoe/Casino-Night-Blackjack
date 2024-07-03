@@ -6,6 +6,14 @@ interface PlayerProps {
     player: PlayerState;
   }
 
+  type Player = {
+    name: string;
+    id: string;
+    chips: number;
+    hands?: Hand[];
+  };
+
+
 const Player: React.FC<PlayerProps> = ({ player }) => {
   return <>
     <h1>{player.name}</h1>

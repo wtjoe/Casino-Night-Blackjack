@@ -1,17 +1,13 @@
 import React from 'react';
 import Opponent from './Opponent';
+import Hand from "./Hand";
 
 interface OpponentsProps {
   opponents: {
     name: string;
-    id: number;
+    id: string;
     chips: number;
-    hands: {
-      bet: number;
-      cards: string[];
-      value: number;
-      result: string;
-    }[];
+    hands?: Hand[];
   }[];
 }
 

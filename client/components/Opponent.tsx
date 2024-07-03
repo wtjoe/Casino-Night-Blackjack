@@ -4,16 +4,11 @@ import Hand from "./Hand";
 interface OpponentProps {
     opponent: {
         name: string;
-        id: number;
+        id: string;
         chips: number;
-        hands: {
-            bet: number;
-            cards: string[];
-            value: number;
-            result: string;
-        }[];
+        hands?: Hand[];
+        };
     };
-}
 
 const Opponent: React.FC<OpponentProps> = ({ opponent }) => {
   return <>
@@ -21,7 +16,7 @@ const Opponent: React.FC<OpponentProps> = ({ opponent }) => {
     <div>
         Chips:  {opponent.chips}
     </div>
-    <Hand hand={opponent.hands[0]} />
+    {/* <Hand hand={opponent.hands[0]} /> */}
 
 
   </>;
